@@ -1,4 +1,2 @@
-
-
-// let myCreatedDate = new Date(2023,0,23)
-// console.log(myCreatedDate.toString())
+marvelHeroes.push(dcHeroes)
+// console.log(marvelHeroes[3][2])
