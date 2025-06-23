@@ -1,2 +1,1 @@
-marvelHeroes.push(dcHeroes)
-// console.log(marvelHeroes[3][2])
+console.log(obj3)
