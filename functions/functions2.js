@@ -20,4 +20,23 @@ handleobject({
 })
 
 
-cons
+const myNewArray = [200,4,67,86]
+function returnSecondvalue(getArray){
+ return getArray[1]
+}
+console.log(returnSecondvalue(myNewArray))
+const myArray = [23,45,32,21]
+function returnThirdvalue(getArray2){
+    return getArray[2]
+}
+console.log(returnThirdvalue(myArray))
+
+
+const user2 = {
+    email:"ritikpandey9536@gmail.com",
+    name:"Ritik Pandey",
+    age:20,
+    isLoggedIn:false,
+    
+
+}
