@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTml events</title>
+</head>
+<body>
+</body>
+<script>
+    document.getElementById('owl').onclick = function(){
+        alert('owl clicked');
+    }
+    document.getElementById('owl').addEventListener()
+</script>
+</html>
+
+
+
+
+
+
+
+Last login: Mon Jul 14 12:13:18 on ttys000
+ritikpandey@Ritiks-MacBook-Air ~ % mysql -u root --p
+mysql: [ERROR] unknown option '--p'.
+ritikpandey@Ritiks-MacBook-Air ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 9.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> Create database temp
+    -> use temp
+    -> use tem;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'use temp
+use tem' at line 2
+mysql> create database temp;
+Query OK, 1 row affected (0.035 sec)
+
+mysql> use temp;
+Database changed
+mysql> Create table student(
+    -> id INT,
+    -> name Varchar(255)
+    -> );
+Query OK, 0 rows affected (0.035 sec)
+
+mysql> Insert into student(1,"ritik");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,"ritik")' at line 1
+mysql> Insert into student values(1,"ritik");
+Query OK, 1 row affected (0.011 sec)
+
+mysql> select * from student;
++------+-------+
+| id   | name  |
++------+-------+
+|    1 | ritik |
++------+-------+
+1 row in set (0.001 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| practice           |
+| sys                |
+| temp               |
+| temp1              |
+| temp2              |
+| xyz_company        |
++--------------------+
+10 rows in set (0.047 sec)
+
+mysql> create database org;
+Query OK, 1 row affected (0.061 sec)
+
+mysql> use org;
+Database changed
+mysql> create table workers(
+    -> Worker_id INT Not null Primary Key
+    -> FirstName char(25)
+    -> LastName char(35)
+    -> Salary INT(15)
+    -> Joining Date Datetime
+    -> Department char(25)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FirstName char(25)
+LastName char(35)
+Salary INT(15)
+Joining Date Datetime
+Depart' at line 3
+mysql> create table workers(
+    ->     -> Worker_id INT Not null Primary Key
+    ->     -> FirstName char(25)
+    ->     -> LastName char(35)
+    ->     -> Salary INT(15)
+    ->     -> Joining Date Datetime
+    ->     -> Department char(25)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> Worker_id INT Not null Primary Key
+    -> FirstName char(25)
+    -> LastName ' at line 2
+mysql> ERROR 106
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ERROR 106' at line 1
+mysql> CREATE TABLE Workers (
+    ->     Worker_id INT NOT NULL PRIMARY KEY,
+    ->     FirstName CHAR(25),
+    ->     LastName CHAR(35),
+    ->     Salary INT,
+    ->     Joining_Date DATETIME,
+    ->     Department CHAR(25)
+    -> );
+Query OK, 0 rows affected (0.031 sec)
+
+mysql> Insert into Workers values(1,"ritik","pandey",20000,12/09/2023,"IT),
+    "> (2,"rudra","Jaiswal",20000,12/09/2023,"Hr");
+    "> ;
+    "> 
+    "> ^C
+mysql> select * from Workers
+    -> select * from Workers;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from Workers' at line 2
+mysql> select * from workers;
+Empty set (0.009 sec)
+
+mysql> Insert into Workers Values(1,"ritik","pandey","2000","29-03-2004","IT);
+    "> ^C
+mysql> 
+mysql> select * from workers;
+Empty set (0.000 sec)
+
+mysql> INSERT INTO Workers 
+    -> VALUES (1, 'ritik', 'pandey', 2000, '2004-03-29', 'IT');
+Query OK, 1 row affected (0.005 sec)
+
+mysql> select * from Workers;
++-----------+-----------+----------+--------+---------------------+------------+
+| Worker_id | FirstName | LastName | Salary | Joining_Date        | Department |
++-----------+-----------+----------+--------+---------------------+------------+
+|         1 | ritik     | pandey   |   2000 | 2004-03-29 00:00:00 | IT         |
++-----------+-----------+----------+--------+---------------------+------------+
+1 row in set (0.001 sec)
+
+mysql> select Salart FROm workers;
+ERROR 1054 (42S22): Unknown column 'Salart' in 'field list'
+mysql> select salary from workers;
++--------+
+| salary |
++--------+
+|   2000 |
++--------+
+1 row in set (0.001 sec)
+
+mysql> select * from workers where fistname like '%z%';
+ERROR 1054 (42S22): Unknown column 'fistname' in 'where clause'
+mysql> select * from workers where firstname like '%z%';
+Empty set (0.010 sec)
+
+mysql> select * from workers where firstname like '%i%';
++-----------+-----------+----------+--------+---------------------+------------+
+| Worker_id | FirstName | LastName | Salary | Joining_Date        | Department |
++-----------+-----------+----------+--------+---------------------+------------+
+|         1 | ritik     | pandey   |   2000 | 2004-03-29 00:00:00 | IT         |
++-----------+-----------+----------+--------+---------------------+------------+
+1 row in set (0.003 sec)
+
+mysql> select * from workers order by salary
+    -> s^C
+mysql> select * from workers order by salary;
++-----------+-----------+----------+--------+---------------------+------------+
+| Worker_id | FirstName | LastName | Salary | Joining_Date        | Department |
++-----------+-----------+----------+--------+---------------------+------------+
+|         1 | ritik     | pandey   |   2000 | 2004-03-29 00:00:00 | IT         |
++-----------+-----------+----------+--------+---------------------+------------+
+1 row in set (0.006 sec)
+
+mysql> Insert INTO workers values(1,"rudra","Jaiswal",2001,'2002-03-30','HR');
+ERROR 1062 (23000): Duplicate entry '1' for key 'workers.PRIMARY'
+mysql> Insert INTO workers values(2,"rudra","Jaiswal",2001,'2002-03-30','HR');
+Query OK, 1 row affected (0.009 sec)
+
+mysql> selct * from workers;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct * from workers' at line 1
+mysql> select * from workers;
++-----------+-----------+----------+--------+---------------------+------------+
+| Worker_id | FirstName | LastName | Salary | Joining_Date        | Department |
++-----------+-----------+----------+--------+---------------------+------------+
+|         1 | ritik     | pandey   |   2000 | 2004-03-29 00:00:00 | IT         |
+|         2 | rudra     | Jaiswal  |   2001 | 2002-03-30 00:00:00 | HR         |
++-----------+-----------+----------+--------+---------------------+------------+
+2 rows in set (0.008 sec)
+
+mysql> INsert into workeres values(3,"pulkit","nishad",2001,"2000-02-19",'IT');
+ERROR 1146 (42S02): Table 'org.workeres' doesn't exist
+mysql> INsert into workers values(3,"pulkit","nishad",2001,"2000-02-19",'IT');
+Query OK, 1 row affected (0.002 sec)
+
+mysql> select * from workers;
++-----------+-----------+----------+--------+---------------------+------------+
+| Worker_id | FirstName | LastName | Salary | Joining_Date        | Department |
++-----------+-----------+----------+--------+---------------------+------------+
+|         1 | ritik     | pandey   |   2000 | 2004-03-29 00:00:00 | IT         |
+|         2 | rudra     | Jaiswal  |   2001 | 2002-03-30 00:00:00 | HR         |
+|         3 | pulkit    | nishad   |   2001 | 2000-02-19 00:00:00 | IT         |
++-----------+-----------+----------+--------+---------------------+------------+
+3 rows in set (0.001 sec)
+
+mysql> select distinct department from workers;
++------------+
+| department |
++------------+
+| IT         |
+| HR         |
++------------+
+2 rows in set (0.009 sec)
+
+mysql> select distinct firstname from workers;
++-----------+
+| firstname |
++-----------+
+| ritik     |
+| rudra     |
+| pulkit    |
++-----------+
+3 rows in set (0.001 sec)
+
+mysql> select distinct salary from workers
+    -> ^C
+mysql> select distinct salary from workers;
++--------+
+| salary |
++--------+
+|   2000 |
+|   2001 |
++--------+
+2 rows in set (0.001 sec)
+
+mysql> select department from workers group by department;
++------------+
+| department |
++------------+
+| IT         |
+| HR         |
++------------+
+2 rows in set (0.003 sec)
+
+mysql> select department from workers group by department (count);
+ERROR 1305 (42000): FUNCTION org.department does not exist
+mysql> select department,count from workers group by department;
+ERROR 1054 (42S22): Unknown column 'count' in 'field list'
+mysql> select department, count(*) from workers group by department;
++------------+----------+
+| department | count(*) |
++------------+----------+
+| IT         |        2 |
+| HR         |        1 |
++------------+----------+
+2 rows in set (0.003 sec)
+
+mysql> select department,sum(*) from workers group by department;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) from workers group by department' at line 1
+mysql> INSERT INTO workers VALUES (3, 'Aarav', 'Sharma', 2500, '2005-04-15', 'Finance');
+ERROR 1062 (23000): Duplicate entry '3' for key 'workers.PRIMARY'
+mysql> INSERT INTO workers VALUES (4, 'Isha', 'Verma', 3000, '2008-07-19', 'Marketing');
+Query OK, 1 row affected (0.005 sec)
+
+mysql> INSERT INTO workers VALUES (5, 'Kabir', 'Singh', 2200, '2011-12-01', 'IT');
+Query OK, 1 row affected (0.006 sec)
+
+mysql> INSERT INTO workers VALUES (6, 'Ananya', 'Rao', 2800, '2010-06-25', 'HR');
+Query OK, 1 row affected (0.001 sec)
+
+mysql> INSERT INTO workers VALUES (7, 'Vikram', 'Patel', 2600, '2012-11-30', 'Admin');
+Query OK, 1 row affected (0.001 sec)
+
+mysql> select * from workers;
++-----------+-----------+----------+--------+---------------------+------------+
+| Worker_id | FirstName | LastName | Salary | Joining_Date        | Department |
++-----------+-----------+----------+--------+---------------------+------------+
+|         1 | ritik     | pandey   |   2000 | 2004-03-29 00:00:00 | IT         |
+|         2 | rudra     | Jaiswal  |   2001 | 2002-03-30 00:00:00 | HR         |
+|         3 | pulkit    | nishad   |   2001 | 2000-02-19 00:00:00 | IT         |
+|         4 | Isha      | Verma    |   3000 | 2008-07-19 00:00:00 | Marketing  |
+|         5 | Kabir     | Singh    |   2200 | 2011-12-01 00:00:00 | IT         |
+|         6 | Ananya    | Rao      |   2800 | 2010-06-25 00:00:00 | HR         |
+|         7 | Vikram    | Patel    |   2600 | 2012-11-30 00:00:00 | Admin      |
++-----------+-----------+----------+--------+---------------------+------------+
+7 rows in set (0.001 sec)
+
+mysql> 
+mysql> select department,avg(salary) group by department;
+ERROR 1054 (42S22): Unknown column 'department' in 'field list'
+mysql> select department, avg(salary) from workers group by department;
++------------+-------------+
+| department | avg(salary) |
++------------+-------------+
+| IT         |   2067.0000 |
+| HR         |   2400.5000 |
+| Marketing  |   3000.0000 |
+| Admin      |   2600.0000 |
++------------+-------------+
+4 rows in set (0.007 sec)
+
+mysql> select department, Min(salary) from workers group by department;
++------------+-------------+
+| department | Min(salary) |
++------------+-------------+
+| IT         |        2000 |
+| HR         |        2001 |
+| Marketing  |        3000 |
+| Admin      |        2600 |
++------------+-------------+
+4 rows in set (0.003 sec)
+
+mysql>  select department, sum(salary) from workers group by department;
++------------+-------------+
+| department | sum(salary) |
++------------+-------------+
+| IT         |        6201 |
+| HR         |        4801 |
+| Marketing  |        3000 |
+| Admin      |        2600 |
++------------+-------------+
+4 rows in set (0.002 sec)
+
+mysql> -- group by having
+Query OK, 0 rows affected (0.001 sec)
+
+mysql> CREATE TABLE account (
+    ->     id INT PRIMARY KEY,
+    ->     name VARCHAR(255) UNIQUE,
+    ->     balance INT NOT NULL DEFAULT 0
+    -> );
+Query OK, 0 rows affected (0.079 sec)
+
+mysql> INSERT INTO account(id, name, balance)
+    -> VALUES (1, 'A', 10000);
+Query OK, 1 row affected (0.016 sec)
+
+mysql> 
+mysql> INSERT INTO account(id, name, balance)
+    -> VALUES (2, 'B', 100);
+Query OK, 1 row affected (0.002 sec)
+
+mysql> Insert into account values(3,'c');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> Insert into account(id,name)
+    -> values(3,'c');
+Query OK, 1 row affected (0.002 sec)
+
+mysql> select * from account;
++----+------+---------+
+| id | name | balance |
++----+------+---------+
+|  1 | A    |   10000 |
+|  2 | B    |     100 |
+|  3 | c    |       0 |
++----+------+---------+
+3 rows in set (0.008 sec)
+
+mysql> -- add new column
+Query OK, 0 rows affected (0.001 sec)
+
+mysql> Alter table account add Interest FLOAT NOT NULL DEFAULT 0;
+Query OK, 0 rows affected (0.021 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from account;
++----+------+---------+----------+
+| id | name | balance | Interest |
++----+------+---------+----------+
+|  1 | A    |   10000 |        0 |
+|  2 | B    |     100 |        0 |
+|  3 | c    |       0 |        0 |
++----+------+---------+----------+
+3 rows in set (0.002 sec)
+
+mysql> Insert into account values(2,'d',1900,8);
+ERROR 1062 (23000): Duplicate entry '2' for key 'account.PRIMARY'
+mysql> Insert into account values(4,'d',1200,8);
+Query OK, 1 row affected (0.003 sec)
+
+mysql> select * from account;
++----+------+---------+----------+
+| id | name | balance | Interest |
++----+------+---------+----------+
+|  1 | A    |   10000 |        0 |
+|  2 | B    |     100 |        0 |
+|  3 | c    |       0 |        0 |
+|  4 | d    |    1200 |        8 |
++----+------+---------+----------+
+4 rows in set (0.001 sec)
+
+mysql> -- modify
+Query OK, 0 rows affected (0.001 sec)
+
+mysql> alter talbe account MODIFY interest double NOT NULL DEFAULT 0;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'talbe account MODIFY interest double NOT NULL DEFAULT 0' at line 1
+mysql> alter table account MODIFY interest double NOT NULL DEFAULT 0;
+Query OK, 4 rows affected (0.037 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> desc account;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| id       | int          | NO   | PRI | NULL    |       |
+| name     | varchar(255) | YES  | UNI | NULL    |       |
+| balance  | int          | NO   |     | 0       |       |
+| interest | double       | NO   |     | 0       |       |
++----------+--------------+------+-----+---------+-------+
+4 rows in set (0.023 sec)
+
+mysql> alter table account drop column interest;
+Query OK, 0 rows affected (0.015 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from workers;
++-----------+-----------+----------+--------+---------------------+------------+
+| Worker_id | FirstName | LastName | Salary | Joining_Date        | Department |
++-----------+-----------+----------+--------+---------------------+------------+
+|         1 | ritik     | pandey   |   2000 | 2004-03-29 00:00:00 | IT         |
+|         2 | rudra     | Jaiswal  |   2001 | 2002-03-30 00:00:00 | HR         |
+|         3 | pulkit    | nishad   |   2001 | 2000-02-19 00:00:00 | IT         |
+|         4 | Isha      | Verma    |   3000 | 2008-07-19 00:00:00 | Marketing  |
+|         5 | Kabir     | Singh    |   2200 | 2011-12-01 00:00:00 | IT         |
+|         6 | Ananya    | Rao      |   2800 | 2010-06-25 00:00:00 | HR         |
+|         7 | Vikram    | Patel    |   2600 | 2012-11-30 00:00:00 | Admin      |
++-----------+-----------+----------+--------+---------------------+------------+
+7 rows in set (0.002 sec)
+
+mysql> select * from account;
++----+------+---------+
+| id | name | balance |
++----+------+---------+
+|  1 | A    |   10000 |
+|  2 | B    |     100 |
+|  3 | c    |       0 |
+|  4 | d    |    1200 |
++----+------+---------+
+4 rows in set (0.002 sec)
+
+mysql> alter table account Rename to account_details'
+    '> ^C
+mysql> alter table account Rename to account_details;
+Query OK, 0 rows affected (0.012 sec)
+
+mysql> select * from account;
+ERROR 1146 (42S02): Table 'org.account' doesn't exist
+mysql> select * from account_details;
++----+------+---------+
+| id | name | balance |
++----+------+---------+
+|  1 | A    |   10000 |
+|  2 | B    |     100 |
+|  3 | c    |       0 |
+|  4 | d    |    1200 |
++----+------+---------+
+4 rows in set (0.002 sec)
+
+mysql> 
